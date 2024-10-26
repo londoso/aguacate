@@ -44,6 +44,8 @@ jobs:
           parameter-overrides: "BucketName=${{ secrets.BUCKET_NAME }}"
 
       - name: Show CloudFormation Outputs
-        run: echo ${{ steps.cloudformation.outputs['MainBucketName'] }}
+        run: |
+          echo MainBucketName= ${{ steps.cloudformation.outputs.MainBucketName }}
+          echo Prueba= ${{ steps.cloudformation.outputs.Prueba }}
 
     

@@ -21,3 +21,6 @@ Outputs:
   MainBucketName:
     Description: Name of the main bucket
     Value: !Ref MainBucket
+  Prueba:
+    Description: Name of the main bucket
+    Value: Pruebaxx
