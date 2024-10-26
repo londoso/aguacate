@@ -7,11 +7,7 @@ Parameters:
     Default: "my-bucket-londoso-123"
 
 Resources:  
-  AccessLogBucket:
-    Type: "AWS::S3::Bucket"
-    Properties:
-      AccessControl: LogDeliveryWrite
-            
+           
   MainBucket:
     Type: "AWS::S3::Bucket"
     Properties:
@@ -20,14 +16,8 @@ Resources:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
               SSEAlgorithm: AES256
-      LoggingConfiguration:
-        DestinationBucketName: !Ref AccessLogBucket
-
 
 Outputs:
   MainBucketName:
     Description: Name of the main bucket
     Value: !Ref MainBucket
-  LogBucketName:
-    Description: Name of the access log bucket
-    Value: !Ref AccessLogBucket
