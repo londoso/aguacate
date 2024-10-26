@@ -36,10 +36,14 @@ jobs:
           role-session-name: GitHubActions
 
       - name: Deploy to AWS CloudFormation
+        id: cloudformation
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StackAguacate
           template: template.yaml
           parameter-overrides: "BucketName=${{ secrets.BUCKET_NAME }}"
+
+      - name: Show CloudFormation Outputs
+        run: echo ${{ steps.cloudformation.outputs }}
 
     
